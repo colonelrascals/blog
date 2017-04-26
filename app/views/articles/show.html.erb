@@ -4,5 +4,20 @@
   <h4>Text: </h4>'
     <%= @article.text %>
 </div>
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Show', edit_article_path(@article) %>
 <%= link_to 'Back', articles_path %>
